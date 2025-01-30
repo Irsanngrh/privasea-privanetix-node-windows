@@ -16,7 +16,8 @@ mkdir -p ~/privasea/config && cd ~/privasea
 ```
 - Ambil keystore file dengan membuat passowrd kunci ( simpan password untuk menjalankan node )
 ```
-sudo docker run -it -v "/privasea/config:/app/config" \ privasea/acceleration-node-beta:latest ./node-calc new_keystore
+sudo docker run -it -v "/privasea/config:/app/config"  \
+privasea/acceleration-node-beta:latest ./node-calc new_keystore
 ```
 - Simpan alamat node yang nanti akan digunakan pada dashboard privasea, contoh:
 ```
@@ -31,7 +32,9 @@ node address: 0xf07c3eF23ae7BEb8CD8bA5fF546E35Fd4b332B34
 - Untuk menjalankan node, ketik kode berikut:
 ```
 cd /privasea/
-sudo docker run  -d   -v "/privasea/config:/app/config" \ e KEYSTORE_PASSWORD=123456 \ privasea/acceleration-node-beta:latest
+sudo docker run  -d   -v "/privasea/config:/app/config" \
+-e KEYSTORE_PASSWORD=123456 \
+privasea/acceleration-node-beta:latest
 ```
 Ubah password "123456" di KEYSTORE_PASSWORD=123456 sesuai dengan password kunci yang tadi sudah dibuat
 - Untuk menhentikan node, ketik kode berikut:
